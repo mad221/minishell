@@ -6,7 +6,7 @@
 /*   By: mpouzol <mpouzol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/11 15:30:01 by mpouzol           #+#    #+#             */
-/*   Updated: 2019/12/11 15:45:45 by mpouzol          ###   ########.fr       */
+/*   Updated: 2020/01/07 15:33:53 by mpouzol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,10 @@ void	ft_search_exit(char *str, int *i)
 		while (str[*i] == ' ')
 			*i += 1;
 		if (ft_strcmp(&str[*i], "exit") == 0)
+		{
+			ft_putstr("exit\n");
 			exit(EXIT_SUCCESS);
+		}
 	}
 }
 
