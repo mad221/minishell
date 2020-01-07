@@ -6,7 +6,7 @@
 /*   By: mpouzol <mpouzol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/11 11:18:15 by mpouzol           #+#    #+#             */
-/*   Updated: 2020/01/07 19:27:25 by mpouzol          ###   ########.fr       */
+/*   Updated: 2020/01/07 19:44:41 by mpouzol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int ft_echon(char *str)
 	i = 0;
 	while (str[i] == ' ')
 		i++;
-	while(str[i] && str[i] != '|' && str[i] != '\n')
+	while(str[i] && str[i] != '|' && str[i] != '\n' && str[i] != ';')
 	{
 		write(1, &str[i], 1);
 		i++;
@@ -66,7 +66,7 @@ static void ft_putvar(char *str)
 
 	i = 0;
 	ft_putchar('=');
-	while (str[i] != '\"')
+	while (str[i] && str[i] != '\"')
 	{
 		ft_putchar(str[i]);
 		i++;
