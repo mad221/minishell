@@ -6,7 +6,7 @@
 /*   By: mpouzol <mpouzol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/11 11:18:15 by mpouzol           #+#    #+#             */
-/*   Updated: 2020/01/07 10:36:00 by mpouzol          ###   ########.fr       */
+/*   Updated: 2020/01/07 19:27:25 by mpouzol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static int	ft_echo(char *str)
 	i = 0;
 	if (str[i] == '-' && str[i + 1] == 'n')
 		return (ft_echon(&str[i + 2]));
-	while(str[i] && str[i] != '|')
+	while(str[i] && str[i] != '|' && str[i] != ';' && str[i] != '\n')
 	{
 		write(1, &str[i], 1);
 		i++;
