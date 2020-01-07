@@ -6,7 +6,7 @@
 /*   By: mpouzol <mpouzol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/11 18:47:56 by mpouzol           #+#    #+#             */
-/*   Updated: 2020/01/07 09:18:48 by mpouzol          ###   ########.fr       */
+/*   Updated: 2020/01/07 13:27:27 by mpouzol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,14 +114,14 @@ int		ft_add_to_envp(char *str)
 		if (i != 0 && str[i - 1] == '=')
 		{
 			word[s] = '\"';
+			word[len+1] = '\"';
 			s++;
 		}
 		word[s] = str[i];
 		i++;
 		s++;
 	}
-	word[s] = '\"';
-	word[s + 1] = '\0';
+	word[s+1] = '\0';
 	g_envp = ft_export_word(word);
 	return (1);
 }

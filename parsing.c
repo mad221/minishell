@@ -6,7 +6,7 @@
 /*   By: mpouzol <mpouzol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 19:00:18 by mpouzol           #+#    #+#             */
-/*   Updated: 2019/12/12 10:39:47 by mpouzol          ###   ########.fr       */
+/*   Updated: 2020/01/07 10:53:55 by mpouzol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int ft_parsing(char *str)
 		ft_search_pwd(str, &i);
 		ft_search_exit(str, &i);
 		ft_search_export(str, &i);
+		ft_search_unset(str, i);
 		i++;
 	}
 	return (1);
