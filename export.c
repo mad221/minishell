@@ -6,7 +6,7 @@
 /*   By: mpouzol <mpouzol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/11 18:47:56 by mpouzol           #+#    #+#             */
-/*   Updated: 2020/01/07 13:27:27 by mpouzol          ###   ########.fr       */
+/*   Updated: 2020/01/07 19:17:21 by mpouzol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,7 +128,7 @@ int		ft_add_to_envp(char *str)
 
 void	ft_search_export(char *str, int *i)
 {
-	if ((*i  == 0 && str[*i] == 'e') || (str[*i] == ' '))
+	if ((*i  == 0 && str[*i] == 'e') || (str[*i] == ' ' && str[*i + 1] == 'e'))
 	{
 		while (str[*i] == ' ')
 			*i += 1;

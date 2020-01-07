@@ -6,7 +6,7 @@
 /*   By: mpouzol <mpouzol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/07 10:48:52 by mpouzol           #+#    #+#             */
-/*   Updated: 2020/01/07 15:48:38 by mpouzol          ###   ########.fr       */
+/*   Updated: 2020/01/07 19:19:50 by mpouzol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,11 +61,14 @@ static void	ft_unset(char *str)
 
 void	ft_search_unset(char *str, int *i)
 {
-	while (str[*i] == ' ')
-		*i += 1;
-	if (ft_strcmp(&str[*i], "unset") == 0)
+	if (str[*i] == 'u' && str[*i + 1] == 'n' && str[*i + 2] == 's')
 	{
-		*i += 6;
-		ft_unset(&str[*i]);
+		while (str[*i] == ' ')
+			*i += 1;
+		if (ft_strcmp(&str[*i], "unset") == 0)
+		{
+			*i += 6;
+			ft_unset(&str[*i]);
+		}
 	}
 }
