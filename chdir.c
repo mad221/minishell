@@ -6,7 +6,7 @@
 /*   By: mpouzol <mpouzol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 18:51:35 by mpouzol           #+#    #+#             */
-/*   Updated: 2020/01/07 16:29:56 by mpouzol          ###   ########.fr       */
+/*   Updated: 2020/01/07 18:57:59 by mpouzol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,17 +63,22 @@ static char	*ft_home(void)
 void			ft_search_cd(char *str, int *i)
 {
 	if ((str[*i] == ' ' && ( str[*i + 1] == 'c' && str[*i + 2] == 'd'))
-		|| (str[0] == 'c' && str[*i + 1] == 'd'))
+		|| ( *i == 0 && str[*i] == 'c' && str[*i + 1] == 'd'))
 		{
-			*i += 2;
-			if (str[*i] == ' ' || str[*i] == '\n')
+			if (str[*i] == 'c')
+				*i += 2;
+			else
+				*i += 3;
+			if (str[*i] == ' ' || str[*i] == '\n' | str[*i] == ';')
 			{
 				while (str[*i] == ' ')
 					*i += 1;
-				if (str[*i] != '\n' && str[*i] != '\0')
+				if (str[*i] != '\n' && str[*i] != '\0' && str[*i] != ';')
 					ft_cd(&str[*i]);
 				else
 					ft_cd(ft_home());
 			}
+			while (str[*i] != '\n' && str[*i] != '\0' && str[*i] != ';')
+				*i += 1;
 		}
 }
