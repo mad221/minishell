@@ -6,7 +6,7 @@
 /*   By: mpouzol <mpouzol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/04 17:39:28 by bshi              #+#    #+#             */
-/*   Updated: 2020/01/07 10:53:25 by mpouzol          ###   ########.fr       */
+/*   Updated: 2020/01/07 15:46:27 by mpouzol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,12 @@ void 	ft_read_stdin(void);
 void	ft_show_prompt(void);
 int		find_env(char *var);
 int		ft_parsing(char *str);
-void	ft_search_cd(char *str, int i);
+void	ft_search_cd(char *str, int *i);
 int		ft_strcmp(char *str1, char *str2);
 void	ft_search_echo(char *str, int *i);
 void	ft_search_pwd(char *str, int *i);
 void	ft_search_exit(char *str, int *i);
 void	ft_search_export(char *str, int *i);
-void	ft_search_unset(char *str, int i);
+void	ft_search_unset(char *str, int *i);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: mpouzol <mpouzol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 18:51:35 by mpouzol           #+#    #+#             */
-/*   Updated: 2019/12/12 10:39:36 by mpouzol          ###   ########.fr       */
+/*   Updated: 2020/01/07 16:29:56 by mpouzol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,16 +32,48 @@ static int		ft_cd(char *hope_path)
 	return(1);
 }
 
-void			ft_search_cd(char *str, int i)
+
+static int ft_strcmp_spe(char *s1, char *s2)
 {
-	if ((str[i] == ' ' && ( str[i + 1] == 'c' && str[i + 2] == 'd'))
-		|| (str[0] == 'c' && str[i + 1] == 'd'))
+	int i;
+
+	i = 0;
+	while (s1[i] == s2[i])
+		i++;
+	if (s2[i] == '\0')
+		return (0);
+	else
+		return (1);
+}
+
+static char	*ft_home(void)
+{
+	int i;
+
+	i = 0;
+	while (g_envp[i])
+	{
+		if (ft_strcmp_spe( g_envp[i], "HOME=") == 0)
+			return (&g_envp[i][5]);
+		i++;
+	}
+	return (0);
+}
+
+void			ft_search_cd(char *str, int *i)
+{
+	if ((str[*i] == ' ' && ( str[*i + 1] == 'c' && str[*i + 2] == 'd'))
+		|| (str[0] == 'c' && str[*i + 1] == 'd'))
 		{
-			i += 2;
-			if (str[i] == ' ')
-			{	while (str[i] == ' ')
-					i++;
-				ft_cd(&str[i]);
+			*i += 2;
+			if (str[*i] == ' ' || str[*i] == '\n')
+			{
+				while (str[*i] == ' ')
+					*i += 1;
+				if (str[*i] != '\n' && str[*i] != '\0')
+					ft_cd(&str[*i]);
+				else
+					ft_cd(ft_home());
 			}
 		}
 }
