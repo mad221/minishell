@@ -6,7 +6,7 @@
 /*   By: mpouzol <mpouzol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 19:00:18 by mpouzol           #+#    #+#             */
-/*   Updated: 2020/01/07 19:32:57 by mpouzol          ###   ########.fr       */
+/*   Updated: 2020/01/08 12:20:38 by mpouzol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int ft_parsing(char *str)
 		ft_search_exit(str, &i);
 		ft_search_export(str, &i);
 		ft_search_unset(str, &i);
-		printf("count = %d\n", i);
+		//printf("count = %d\n", i);
 		i++;
 	}
 	return (1);

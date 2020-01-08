@@ -6,7 +6,7 @@
 /*   By: mpouzol <mpouzol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/11 18:47:56 by mpouzol           #+#    #+#             */
-/*   Updated: 2020/01/07 19:33:33 by mpouzol          ###   ########.fr       */
+/*   Updated: 2020/01/08 14:23:57 by mpouzol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,11 +86,13 @@ char	**ft_export_word(char *str)
 	while (g_envp[len])
 	{
 		array[len] = g_envp[len];
-		if (ft_strcmp(g_envp[len], str) == 0)
-			exist = 1;
-		len++;
+		if (str != NULL)
+			if (ft_strcmp(g_envp[len], str) == 0)
+				exist = 1;
+			len++;
 	}
 	array[len] = (exist == 0) ? str : NULL;
+
 	array[len + 1] = NULL;
 	return (array);
 }
@@ -129,16 +131,18 @@ int		ft_add_to_envp(char *str)
 void	ft_search_export(char *str, int *i)
 {
 	if ((*i  == 0 && str[*i] == 'e' && str[*i + 1] == 'x'
-	&& str[*i + 2] == 'x' && str[*i + 3] == 'p') ||
-	(str[*i] == ' ' && str[*i + 1] == 'e' && str[*i + 2] == 'p'))
+	&& str[*i + 2] == 'p' && str[*i + 3] == 'o') ||
+	(str[*i] == ' ' && str[*i + 1] == 'e' && str[*i + 2] == 'x' && str[*i + 3] == 'p'))
 	{
-		while (str[*i] == ' ')
+		while ( str[*i] == ' ')
 			*i += 1;
 		if (ft_strcmp(&str[*i], "export") == 0)
 		{
 			*i += 6;
-			if (str[*i] == ' ' && str[*i + 1] != '|' && str[*i + 1] != '\n')
-				ft_add_to_envp(&str[*i + 1]);
+			while (str[*i] == ' ')
+				*i += 1;
+			if (str[*i] != '|' && str[*i] != '\n' && str[*i] != ';')
+				ft_add_to_envp(&str[*i]);
 			else
 				ft_print_export();
 		}

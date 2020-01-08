@@ -6,7 +6,7 @@
 /*   By: mpouzol <mpouzol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 12:51:44 by mpouzol           #+#    #+#             */
-/*   Updated: 2019/12/07 14:36:29 by mpouzol          ###   ########.fr       */
+/*   Updated: 2020/01/08 12:27:06 by mpouzol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ pid_t create_process(void)
 
 void child_process()
 {
-	ft_read_stdin();
 	printf(" j'ai fini dady\n");
 }
 

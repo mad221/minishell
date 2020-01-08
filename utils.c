@@ -6,7 +6,7 @@
 /*   By: mpouzol <mpouzol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/04 17:38:30 by bshi              #+#    #+#             */
-/*   Updated: 2019/12/12 09:52:24 by mpouzol          ###   ########.fr       */
+/*   Updated: 2020/01/08 14:17:05 by mpouzol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,13 +56,17 @@ int ft_strcmp(char *str1, char *str2)
     int i;
 
     i = 0;
-    while (str2[i])
+    if (str2 != NULL && str1 != NULL)
     {
-        if (str1[i] != str2[i])
+        while (str2[i] && str1[i])
+        {
+            if (str1[i] != str2[i])
             return (-1);
-        i++;
+            i++;
+        }
+        if (str1[i] != '\n' && str1[i] != ' ')
+            return (-1);
+        return (0);
     }
-    if (str1[i] != '\n' && str1[i] != ' ')
-        return (-1);
-    return (0);
+    return (-1);
 }

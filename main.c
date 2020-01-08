@@ -6,7 +6,7 @@
 /*   By: mpouzol <mpouzol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/04 16:22:19 by bshi              #+#    #+#             */
-/*   Updated: 2019/12/07 16:17:07 by mpouzol          ###   ########.fr       */
+/*   Updated: 2020/01/08 12:27:23 by mpouzol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int     main(int ac, char **av, char **envp)
     //display_prompt();
     //while(envp[i])
        // printf("%s\n ici ",envp[i++]);
-
+    ft_read_stdin();
     pid_t pid = create_process();
 
     if (pid == -1)
