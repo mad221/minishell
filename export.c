@@ -6,7 +6,7 @@
 /*   By: mpouzol <mpouzol@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/11 18:47:56 by mpouzol           #+#    #+#             */
-/*   Updated: 2020/01/08 14:23:57 by mpouzol          ###   ########.fr       */
+/*   Updated: 2020/01/09 10:32:00 by mpouzol          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,38 @@ int 	ft_isnumalpha(char c)
 	return (0);
 }
 
+char **ft_cpy_spe(int len, char **g_envp, char **array, char *str)
+{
+	int i;
+	int s;
+
+	i = 0;
+	while (i < len)
+	{
+		if (!(array[i] = malloc(sizeof(char) * (ft_strlen(g_envp[i]) + 1))))
+			return (0);
+		s = 0;
+		while (s < ft_strlen(g_envp[i]))
+		{
+			array[i][s] = g_envp[i][s];
+			s++;
+		}
+		array[i][s] = '\0';
+		i++;
+	}
+		if (!(array[i] = malloc(sizeof(char) * (ft_strlen(str) + 1))))
+			return (0);
+		s = 0;
+		while (s < ft_strlen(str))
+		{
+			array[i][s] = str[s];
+			s++;
+		}
+	array[i][s] = '\0';
+	array[i + 1] = NULL;
+	g_envp = array;
+	return (array);
+}
 
 char	**ft_export_word(char *str)
 {
@@ -80,20 +112,9 @@ char	**ft_export_word(char *str)
 	len = 0;
 	while (g_envp[len])
 		len++;
-	if (!(array = malloc(sizeof(char *) * len + 2)))
+	if (!(array = malloc(sizeof(char *) * len + 3)))
 		return (0);
-	len = 0;
-	while (g_envp[len])
-	{
-		array[len] = g_envp[len];
-		if (str != NULL)
-			if (ft_strcmp(g_envp[len], str) == 0)
-				exist = 1;
-			len++;
-	}
-	array[len] = (exist == 0) ? str : NULL;
-
-	array[len + 1] = NULL;
+	g_envp = ft_cpy_spe(len, g_envp, array, str);
 	return (array);
 }
 
